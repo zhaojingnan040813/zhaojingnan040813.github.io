@@ -1,0 +1,76 @@
+
+
+<div class="white_ver ajaxPopupPage forceAddScr ajax-text-and-image white-popup-block">
+        
+    
+    <!-- Complete web site content is placed inside the bodyContainer class div except footer -->
+    <hr>                
+    <div class="container" >              
+        <div class="row-fluid">
+            <div class="col-md-7">
+                <iframe class="iframeVideo" src="https://player.vimeo.com/video/80325008?title=0&amp;byline=0&amp;portrait=0&amp;color=4584be" width="800" height="450" ></iframe>
+            </div> 
+             
+            <div class="col-md-5">
+                <h4>Tliquam tlaoreet volutpat elit</h4>
+                <p>Consectetuer adipiscing elit euismod tincidunt. sed diam nonummy nibh euismod tlaoreet dolore magna aliquam erat volutpat. consectetuer adipiscing elit, Nibh euismod tlaoreet dolore magna aliquam erat volutpat. sed diam nonummy magna aliquam erat volutpat consectetuer adipiscing elit.</p>						
+                <ul class="item_feature no_border">
+                    <li><span class="title"><i class="fa fa-calendar"></i></span>05 Jan 2014</li>
+                    <li><span class="title"><i class="fa fa-user"></i></span>Magna aliqua</li>
+                    <li><span class="title"><i class="fa fa-tags"></i></span><span class="meta"><a>Logo,</a> <a>Brand,</a> <a>Design</a> </span></li>
+                    <li><span class="title"><i class="fa fa-external-link"></i></span><a>http://companyname.com</a></li>
+                </ul>
+            </div>
+       </div>
+    </div>
+	<hr>
+		
+	<script>
+		
+		$(document).ready(function(){
+			
+			"use strict";
+			
+			// Flex slideshow initialize
+			$("body").find('.flexSlideshow').each(function(){
+					try{
+						var aniTyp = $(this).hasClass('slideAnimation') ? "slide" : "fade";
+						var tim_ = $(this).attr('data-slidetime') ?  Math.abs($(this).attr('data-slidetime')) : 5000;
+						
+													
+						if(aniTyp === "slide"){
+							$(this).find("li").each(function(i){
+								$(this).find("img").show();
+							});
+						}
+
+						$(this).addClass("flexslider");		
+						var ffx = $(this);
+						ffx.removeClass('flexSlideshow');
+
+						var flexs = $(this);
+						
+						flexs.flexslider({
+						slideshow: true,
+						animation: aniTyp,
+						slideshowSpeed: tim_,
+						start: function(slider){
+							flexs.data("slid",slider);
+							flexs.find(".slider_loading").remove();
+							slider.pause();
+							}
+						});	
+							
+					} catch (e) { }				
+				});
+				
+			try {  $(".container").fitVids(); } catch (e) { }
+			try {  $(".container-fluid").fitVids(); } catch (e) { }	
+					
+		});		
+		
+	</script>
+    
+    
+</div>
+
